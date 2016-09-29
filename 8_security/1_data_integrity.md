@@ -1,10 +1,10 @@
 # Өгөгдлийн бүтэн байдал
 
-Ensuring data integrity means supplying a means of testing that the data has not been tampered with. Usually this is done by forming a simple number out of the bytes in the data. This process is called hashing and the resulting number is called a hash or hash value.
+Өгөгдлийн бүтэн байдлыг хангана гэдэг нь тухайн өгөгдөлд гадны гар хүрсэн эсэхийг шалгах юм. Үүний тулд ихэвчлэн өгөгдлийн байтуудаас тооцоолол хийж нэмэлт тоо гаргаж авдаг. Энэ процессыг хээшлэх, үр дүнд нь гарсан тоог хээш гэж нэрлэдэг.
 
-A naive hashing algorithm is just to sum up all the bytes in the data. However, this still allows almost any amount of changing the data around and still preserving the hash values. For example, an attacker could just swap two bytes. This preserves the hash value, but could end up with you owing someone $65,536 instead of $256.
+Хамгийн энгийн хээшлэх алгоритм бол өгөгдлийн байтуудыг хооронд нь нэмэх арга юм. Гэхдээ энэ арга нь өгөгдлийн утга өөрчлөгдөхийг мэдэх боломжгүй, жишээлбэл хакер өгөгдлийн хоёр байтыг хооронд нь сольж болно. Энэ үед хээш нь жинхэнэ утгатай адил байх боловч өгөгдөл өөрчлөгдсөн байна, жишээлбэл $256-н оронд $65,536 болгон сольсон байх боломжтой.
 
-Hashing algorithms used for security purposes have to be "strong", so that it is very difficult for an attacker to find a different sequence of bytes with the same hash value. This makes it hard to modify the data to the attacker's purposes. Security researchers are constantly testing hash algorithms to see if they can break them - that is, find a simple way of coming up with byte sequences to match a hash value. They have devised a series of cryptographic hashing algorithms which are believed to be strong.
+Тэгэхээр хээшлэх алгоритм маш сайн байх ёстой. Hashing algorithms used for security purposes have to be "strong", so that it is very difficult for an attacker to find a different sequence of bytes with the same hash value. This makes it hard to modify the data to the attacker's purposes. Security researchers are constantly testing hash algorithms to see if they can break them - that is, find a simple way of coming up with byte sequences to match a hash value. They have devised a series of cryptographic hashing algorithms which are believed to be strong.
 
 Go has support for several hashing algorithms, including MD4, MD5, RIPEMD-160, SHA1, SHA224, SHA256, SHA384 and SHA512. They all follow the same pattern as far as the Go programmer is concerned: a function New (or similar) in the appropriate package returns a Hash object from the hash package.
 
