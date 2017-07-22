@@ -1,6 +1,6 @@
 # Тэгш хэмтэй нууцлалт
 
-There are two major mechanisms used for encrypting data. The first uses a single key that is the same for both encryption and decryption. This key needs to be known to both the encrypting and the decrypting agents. How this key is transmitted between the agents is not discussed.
+Өгөгдлийг энкриптлэх хоёр үндсэн арга байдаг. Эхнийх нь өгөгдлийг кодлох болон буцаан задлахад нэгэн ижил түлхүүрийг ашиглах арга юм. Энэ түлхүүр нь кодлож байгаа болон задалж байгаа талуудад хоёуланд нь мэдэгдэж байх ёстой. Хоёр тал түлхүүрээ хэрхэн солилцох нь энд яригдахгүй.
 
 As with hashing, there are many encryption algorithms. Many are now known to have weaknesses, and in general algorithms become weaker over time as computers get faster. Go has support for several symmetric key algorithms such as Blowfish and DES.
 
