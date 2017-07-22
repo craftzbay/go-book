@@ -71,7 +71,7 @@ func checkError(err error) {
 }
 ```
 
-The program also saves the certificates using `gob` serialisation. They can be read back by this program:
+Мөн сертификатыг `gob` аргаар хадгалж байна. Үүнийг дараах програмаар буцаан уншиж болно:
 
 ```go
 // LoadRSAKeys.go
