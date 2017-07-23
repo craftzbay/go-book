@@ -68,7 +68,7 @@ value = next_index()
 
 Функцээс олон утга буцааж болдог Go хэлний нэг өвөрмөц онцлог юм.
 
-```
+```go
 package main
 import "fmt"
 
