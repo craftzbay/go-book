@@ -57,7 +57,7 @@
   * [Таймер, Тикер](6_concurrency/7_timer.md)
   * [Жишээ дасгал](6_concurrency/sample.md)
   * [Бие дааж гүйцэтгэх дасгал](6_concurrency/self.md)
-* [Сүлжээний програмчлал](7_net/README)
+* [Сүлжээний програмчлал](7_net/README.md)
   * [TCP/IP үндэс](7_net/1_tcp_ip.md)
   * [Хоост нэр, DNS](7_net/2_host_dns.md)
   * [Сүлжээ интерфэйс, сокет, порт](7_net/3_iface.md)
