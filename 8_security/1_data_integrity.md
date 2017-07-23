@@ -1,16 +1,14 @@
 # Өгөгдлийн бүтэн байдал
 
-Өгөгдлийг дамжуулах, хадгалах явцад  дамжуулалтын алдаа гарах эсвэл зориуд хэн нэгэн гар хүрч өөрчлөх зэргээр бүрэн бүтэн байдал нь алдагдах тохиолдол гардаг. Үүний шалгахын тулд ихэвчлэн анхны бүтэн өгөгдөл дээр тооцоолол хийж нэмэлт шалгалтын тоо гаргаж авдаг. Энэ тоог _хайш_ \(hash\) гэж нэрлэдэг, харин тоог гаргаж авах процессыг хайшлах гэж нэрлэдэг. Хүлээн авах цэг дээр өгөгдөл бүрэн дамжуулагдсан эсэхийг шалгахдаа ирсэн өгөгдлийг дахин хайшлэнэ, үүссэн хайш тоог анхны хайштай тулган шалгана.
+Өгөгдлийг дамжуулах, хадгалах явцад  дамжуулалтын алдаа гарах эсвэл зориуд хэн нэгэн гар хүрч өөрчлөх зэргээр бүрэн бүтэн байдал нь алдагдах тохиолдол гардаг. Үүний шалгахын тулд ихэвчлэн анхны бүтэн өгөгдөл дээр тооцоолол хийж нэмэлт шалгалтын тоо гаргаж авдаг. Энэ тоог _хайш_ \(hash\) гэж нэрлэдэг, харин тоог гаргаж авах процессыг хайшлэх гэж нэрлэдэг. Хүлээн авагч өгөгдөл бүрэн эсэхийг шалгахдаа ирсэн өгөгдлийг дахин хайшлэнэ, үүссэн хайш тоог анхны хайштай тулган шалгана.
 
-Хамгийн энгийн хээшлэх алгоритм бол өгөгдлийн байтуудыг хооронд нь нэмэх арга юм. Гэхдээ энэ арга нь өгөгдлийн утга өөрчлөгдөхийг мэдэх боломжгүй, жишээлбэл хакер өгөгдлийн хоёр байтыг хооронд нь сольж болно. Энэ үед хээш нь жинхэнэ утгатай адил байх боловч өгөгдөл өөрчлөгдсөн байна, жишээлбэл $256-н оронд $65,536 болгон сольсон байх боломжтой.
+Хамгийн энгийн хайшлэх алгоритм бол өгөгдлийн байтуудыг хооронд нь нэмэх арга юм. Гэхдээ энэ арга нь өгөгдлийн утга өөрчлөгдөхийг мэдэх боломжгүй, жишээлбэл хакер өгөгдлийн хоёр байтыг хооронд нь сольж болно. Энэ үед хайш нь адил байх боловч өгөгдлийн дараалал өөрчлөгдсөн байна. Жишээлбэл $256-н оронд $65,536 болгон сольсон байх боломжтой.
 
-Тэгэхээр хээшлэх алгоритм маш сайн байх ёстой. Hashing algorithms used for security purposes have to be "strong", so that it is very difficult for an attacker to find a different sequence of bytes with the same hash value. This makes it hard to modify the data to the attacker's purposes. Security researchers are constantly testing hash algorithms to see if they can break them - that is, find a simple way of coming up with byte sequences to match a hash value. They have devised a series of cryptographic hashing algorithms which are believed to be strong.
+Тэгэхээр хайшлэх алгоритм маш сайн байх ёстой. Хамгаалалт, нууцлалын зориулалтаар ашиглах хайш алгоритмууд маш сайн байх хэрэгтэй, сайн гэдэг нь өгөгдлийг өөрчлөөд ижил хайш код үүсгэх боломжгүй байх ёстой. Нууцлалын мэргэжилтнүүд хайш алгоритмуудыг үргэлж шалгаж байдаг, халдлага хийх зорилгоор өгөгдлийг өөрчлөх боломж байгаа эсэхийг тэд хайж шалгадаг.
 
-Go has support for several hashing algorithms, including MD4, MD5, RIPEMD-160, SHA1, SHA224, SHA256, SHA384 and SHA512. They all follow the same pattern as far as the Go programmer is concerned: a function New \(or similar\) in the appropriate package returns a Hash object from the hash package.
+Go хэл нь MD4, MD5, RIPEMD-160, SHA1, SHA224, SHA256, SHA384, SHA512 зэрэг хайшлэх алгоритмуудыг дэмждэг. Бүгдээрээ хэрэглэх талаараа төстэй:  New\(\) функцийг дуудаж хайш обект үүсгэнэ. Хайш обект нь `io.Writer` интерфэйстэй бөгөөд өгөгдөлөө ийш нь бичих замаар хайшлэнэ. Хайш дэх байтын тоог `Size()`, хайш утгыг `Sum()` функцүүдээр мэдэж болно.
 
-A Hash has an `io.Writer`, and you write the data to be hashed to this writer. You can query the number of bytes in the hash value by Size and the hash value by Sum.
-
-A typical case is MD5 hashing. This uses the `md5` package. The hash value is a 16 byte array. This is typically printed out in ASCII form as four hexadecimal numbers, each made of 4 bytes. A simple program is
+Энгийн хайшлэх алгоритмуудын нэг нь MD5 юм, үүнд зориулсан `md5` нэртэй пакет бий. Хайш утга нь 16 байтын массив байдаг. Үүнийг арван-зургаатын хэлбэрт дүрсэлж харуулдаг.
 
 ```go
 //  MD5Hash.go
@@ -22,11 +20,15 @@ import (
 )
 
 func main() {
-        hash := md5.New()
+        hash := md5.New() // хайш обект үүсгэж байна
+
         bytes := []byte("hello\n")
-        hash.Write(bytes)
+        hash.Write(bytes) // өгөгдлийг бичиж байна
+
         hashValue := hash.Sum(nil)
         hashSize := hash.Size()
+        
+        // үүссэн hashValue утгыг арван-зургаатаар дүрсэлж байна
         for n := 0; n < hashSize; n += 4 {
                 var val uint32
                 val = uint32(hashValue[n])<<24 +
@@ -39,9 +41,9 @@ func main() {
 }
 ```
 
-which prints "b1946ac9 2492d234 7c6235b4 d2611184"
+Програмаас хэвлэгдэх хайш утга нь  "b1946ac9 2492d234 7c6235b4 d2611184" байна.
 
-A variation on this is the HMAC \(Keyed-Hash Message Authentication Code\) which adds a key to the hash algorithm. There is little change in using this. To use MD5 hashing along with a key, replace the call to New by
+MD5 алгоритм дээр түлхүүр нэмж бага зэрэг өөрчилсөн шинэ алгоритм бий, түүнийг HMAC \(Keyed-Hash Message Authentication Code\) гэж нэрлэдэг. Энэ хайшлэгчийг үүсгэхийн тулд арай өөр байгуулагч функц дуудна.
 
 ```go
 func NewMD5(key []byte) hash.Hash
