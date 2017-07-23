@@ -4,12 +4,12 @@
 
 Хамгийн энгийн хээшлэх алгоритм бол өгөгдлийн байтуудыг хооронд нь нэмэх арга юм. Гэхдээ энэ арга нь өгөгдлийн утга өөрчлөгдөхийг мэдэх боломжгүй, жишээлбэл хакер өгөгдлийн хоёр байтыг хооронд нь сольж болно. Энэ үед хээш нь жинхэнэ утгатай адил байх боловч өгөгдөл өөрчлөгдсөн байна, жишээлбэл $256-н оронд $65,536 болгон сольсон байх боломжтой.
 
-Тэгэхээр хээшлэх алгоритм маш сайн байх ёстой. Hashing algorithms used for security purposes have to be "strong", so that it is very difficult for an attacker to find a different sequence of bytes with the same hash value. This makes it hard to modify the data to the attacker's purposes. Security researchers are constantly testing hash algorithms to see if they can break them - that is, find a simple way of coming up with byte sequences to match a hash value. They have devised a series of cryptographic hashing algorithms which are believed to be strong.
+Тэгэхээр хээшлэх алгоритм маш сайн байх ёстой. Hashing algorithms used for security purposes have to be "strong", so that it is very difficult for an attacker to find a different sequence of bytes with the same hash value. This makes it hard to modify the data to the attacker's purposes. Security researchers are constantly testing hash algorithms to see if they can break them - that is, find a simple way of coming up with byte sequences to match a hash value. They have devised a series of cryptographic hashing algorithms which are believed to be strong.
 
-Go has support for several hashing algorithms, including MD4, MD5, RIPEMD-160, SHA1, SHA224, SHA256, SHA384 and SHA512. They all follow the same pattern as far as the Go programmer is concerned: a function New (or similar) in the appropriate package returns a Hash object from the hash package.
+Go has support for several hashing algorithms, including MD4, MD5, RIPEMD-160, SHA1, SHA224, SHA256, SHA384 and SHA512. They all follow the same pattern as far as the Go programmer is concerned: a function New \(or similar\) in the appropriate package returns a Hash object from the hash package.
 
-A Hash has an `io.Writer`, and you write the data to be hashed to this writer. You can query the number of bytes in the hash value by Size and the hash value by Sum.
-A typical case is MD5 hashing. This uses the `md5` package. The hash value is a 16 byte array. This is typically printed out in ASCII form as four hexadecimal numbers, each made of 4 bytes. A simple program is
+A Hash has an `io.Writer`, and you write the data to be hashed to this writer. You can query the number of bytes in the hash value by Size and the hash value by Sum.  
+A typical case is MD5 hashing. This uses the `md5` package. The hash value is a 16 byte array. This is typically printed out in ASCII form as four hexadecimal numbers, each made of 4 bytes. A simple program is
 
 ```go
 //  MD5Hash.go
@@ -40,8 +40,11 @@ func main() {
 
 which prints "b1946ac9 2492d234 7c6235b4 d2611184"
 
-A variation on this is the HMAC (Keyed-Hash Message Authentication Code) which adds a key to the hash algorithm. There is little change in using this. To use MD5 hashing along with a key, replace the call to New by
+A variation on this is the HMAC \(Keyed-Hash Message Authentication Code\) which adds a key to the hash algorithm. There is little change in using this. To use MD5 hashing along with a key, replace the call to New by
 
 ```go
 func NewMD5(key []byte) hash.Hash
 ```
+
+
+

@@ -1,4 +1,4 @@
-#  Э-мэйл илгээх
+# Э-мэйл илгээх
 
 Э-мэйл үйлчилгээний SMTP, POP3, IMAP зэрэг протоколууд бий. Эдгээрээс SMTP  протоколын тухай үзэе.
 
@@ -20,26 +20,26 @@ import (
 )
 
 func main() {
-	// SMTP сервер рүү холбогдох
-	client, err := smtp.Dial("mail.example.com:25")
-	if err != nil {
-		log.Fatal(err)
-	}
-	// илгээгч, хүлээн авагчийг тохируулах
-	client.Mail("sender@example.org")
-	client.Rcpt("recipient@example.net")
+    // SMTP сервер рүү холбогдох
+    client, err := smtp.Dial("mail.example.com:25")
+    if err != nil {
+        log.Fatal(err)
+    }
+    // илгээгч, хүлээн авагчийг тохируулах
+    client.Mail("sender@example.org")
+    client.Rcpt("recipient@example.net")
 
-	// э-мэйлийн бие хэсгийг үүсгэх
-	wc, err := client.Data()
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer wc.Close()
+    // э-мэйлийн бие хэсгийг үүсгэх
+    wc, err := client.Data()
+    if err != nil {
+        log.Fatal(err)
+    }
+    defer wc.Close()
 
-	buf := bytes.NewBufferString("Э-мэйлийн бие.")
-	if _, err = buf.WriteTo(wc); err != nil {
-		log.Fatal(err)
-	}
+    buf := bytes.NewBufferString("Э-мэйлийн бие.")
+    if _, err = buf.WriteTo(wc); err != nil {
+        log.Fatal(err)
+    }
 }
 ```
 
@@ -56,25 +56,28 @@ import (
 )
 
 func main() {
-	// нэвтрэх эрхийг тохируулах
-	auth := smtp.PlainAuth(
-		"",
-		"user@example.com",
-		"password",
-		"mail.example.com",
-	)
+    // нэвтрэх эрхийг тохируулах
+    auth := smtp.PlainAuth(
+        "",
+        "user@example.com",
+        "password",
+        "mail.example.com",
+    )
 
-	// э-мэйл илгээх
-	err := smtp.SendMail(
-		"mail.example.com:25",
-		auth,
-		"sender@example.org",
-		[]string{"recipient@example.net"},
-		[]byte("Э-мэйлийн бие."),
-	)
+    // э-мэйл илгээх
+    err := smtp.SendMail(
+        "mail.example.com:25",
+        auth,
+        "sender@example.org",
+        []string{"recipient@example.net"},
+        []byte("Э-мэйлийн бие."),
+    )
 
-	if err != nil {
-		log.Fatal(err)
-	}
+    if err != nil {
+        log.Fatal(err)
+    }
 }
 ```
+
+
+

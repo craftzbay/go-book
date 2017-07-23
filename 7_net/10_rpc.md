@@ -1,6 +1,6 @@
 # RPC
 
-RPC (Remote Procedure Call) нь сервер талд байгаа функцийг сүжээгээр дамжуулан дуудах арга юм. RPC нь ердийн функц дуудаж ажиллуулж байгаа юм шиг харагддаг. Гэхдээ нэг програм (клиент), цаашлаад компютерээс хальж сүлжээний өөр нэг компютер дээр ажиллаж байгаа програмын (сервер) функцийг ажиллуулж байгаа хэрэг юм.
+RPC \(Remote Procedure Call\) нь сервер талд байгаа функцийг сүжээгээр дамжуулан дуудах арга юм. RPC нь ердийн функц дуудаж ажиллуулж байгаа юм шиг харагддаг. Гэхдээ нэг програм \(клиент\), цаашлаад компютерээс хальж сүлжээний өөр нэг компютер дээр ажиллаж байгаа програмын \(сервер\) функцийг ажиллуулж байгаа хэрэг юм.
 
 RPC хэрэгжүүлэх хоёр нийтлэг арга байдаг. Эхнийх нь IDL буюу интерфэйс  тодорхойлох тусгай хэл ашигладаг RPC системүүд бий. Жишээлбэл CORBA, Google RPC, Java RMI, NET Remoting зэрэг нь энэ төрөлд хамаарна.
 
@@ -8,9 +8,7 @@ The client-side will package this into a network message and transfer it to the 
 
 TODO: RPC зураг оруулах: Stub, Proxy үүсгэх тухай
 
-
-
-Хоёр дахь нь тусгай клиент API гаргаж ашиглах арга юм. Энэ API-г клиент болон сервер талууд мэдэх хэрэгтэй, хоёр тал функц, параметр, мессежийн формат, бүтцээ сайн мэдэж байх хэрэгтэй байдаг. Жишээлбэл Web Service (SOAP, JSON, REST), Go RPC  зэрэг нь энэ төрлийн RPC систем юм.
+Хоёр дахь нь тусгай клиент API гаргаж ашиглах арга юм. Энэ API-г клиент болон сервер талууд мэдэх хэрэгтэй, хоёр тал функц, параметр, мессежийн формат, бүтцээ сайн мэдэж байх хэрэгтэй байдаг. Жишээлбэл Web Service \(SOAP, JSON, REST\), Go RPC  зэрэг нь энэ төрлийн RPC систем юм.
 
 ## Go RPC
 
@@ -19,17 +17,18 @@ Go-н RPC нь бусад RPC системээс ялгаатай байдаг. 
 RPC системүүд ихэвчлэн дуудагдах функцүүд дээр хязгаарлалт тавьдаг. Үүний ачаар солилцох мессежийн бүтэц нь тодорхой болж зөв ойлголцох боломжтой болдог.
 
 Go RPC хязгаарлалтууд нь:
-* функц нь нээлттэй хандалттай байх ёстой (нэр нь том үсгээр эхлэх);
+
+* функц нь нээлттэй хандалттай байх ёстой \(нэр нь том үсгээр эхлэх\);
 * яг хоёр аргументтай байна, тухайлбал дараах хэлбэртэй бичигдэнэ:
   ```go
   F(&T1, &T2) error
   ```
 * эхнийх нь клиентээс ирсэн хүсэлт, хоёр дахь нь клиентэд буцаах хариу;
-буцах утга нь `error` төрөлтэй байх
+  буцах утга нь `error` төрөлтэй байх
 
 Аргументын тоо хязгаартай учраас клиентээс ирсэн хүсэлтийг нийлмэл төрлөөр тодорхойлох хэрэгтэй болно. Хүсэлт, хариуг Gob ашиглан хувиргаж дамжуулах учраас уг төрөл нь Gob дэмжих хэрэгтэй.
 
-Жишээ болгон арифметик тооцоолол хийх `Arith` нэртэй RPC сервер үүсгэе. Энэ сервер нь хоёр бүхэл тоог үржүүлэх (`Multiply`), хуваах (`Divide`) хоёр функтэй.
+Жишээ болгон арифметик тооцоолол хийх `Arith` нэртэй RPC сервер үүсгэе. Энэ сервер нь хоёр бүхэл тоог үржүүлэх \(`Multiply`\), хуваах \(`Divide`\) хоёр функтэй.
 
 Хүсэлт болох хоёр тоо нь дараах бүтцээр ирнэ гэж тооцоё:
 
@@ -73,7 +72,7 @@ func (t *Arith) Divide(args *Args, quo *Quotient) error {
 
 ## HTTP RPC Server
 
-Ямар ч RPC системд өгөгдлийг сүлжээгээр тээвэрлэх механизм шаардлагатай болно. Go RPC-н хувьд HTTP, TCP протокол ашиглах боломжтой байдаг. The advantage of the HTTP mechanism is that it can leverage off the HTTP suport library. You need to add an RPC handler to the HTTP layer which is done using HandleHTTP and then start an HTTP server. The complete code is
+Ямар ч RPC системд өгөгдлийг сүлжээгээр тээвэрлэх механизм шаардлагатай болно. Go RPC-н хувьд HTTP, TCP протокол ашиглах боломжтой байдаг. The advantage of the HTTP mechanism is that it can leverage off the HTTP suport library. You need to add an RPC handler to the HTTP layer which is done using HandleHTTP and then start an HTTP server. The complete code is
 
 ```go
 // ArithServer.go
@@ -98,10 +97,10 @@ func main() {
 
 ## HTTP RPC client
 
-The client needs to set up an HTTP connection to the RPC server. It needs to prepare a structure with the values to be sent, and the address of a variable to store the results in. Then it can make a Call with arguments:
-The name of the remote function to execute
-The values to be sent
-The address of a variable to store the result in
+The client needs to set up an HTTP connection to the RPC server. It needs to prepare a structure with the values to be sent, and the address of a variable to store the results in. Then it can make a Call with arguments:  
+The name of the remote function to execute  
+The values to be sent  
+The address of a variable to store the result in  
 A client that calls both functions of the arithmetic server is
 
 ```go
@@ -138,7 +137,7 @@ func main() {
                 log.Fatal("arith error:", err)
         }
         fmt.Printf("Arith: %d/%d=%d remainder %d\n",
-			args.A, args.B, quot.Quo, quot.Rem)
+            args.A, args.B, quot.Quo, quot.Rem)
 
 }
 ```
@@ -170,7 +169,7 @@ func main() {
 // checkError функц энд байна
 ```
 
-Note that the call to Accept is blocking, and just handles client connections. If the server wishes to do other work as well, it should call this in a goroutine.
+Note that the call to Accept is blocking, and just handles client connections. If the server wishes to do other work as well, it should call this in a goroutine.
 
 ## TCP RPC client
 
@@ -209,14 +208,14 @@ func main() {
                 log.Fatal("arith error:", err)
         }
         fmt.Printf("Arith: %d/%d=%d remainder %d\n",
-			args.A, args.B, quot.Quo, quot.Rem)
+            args.A, args.B, quot.Quo, quot.Rem)
 
 }
 ```
 
 1. Matching values
-We note that the types of the value arguments are not the same on the client and server. In the server, we have used Values while in the client we used Args. That doesn't matter, as we are following the rules of gobserialisation, and the names an types of the two structures' fields match. Better programming practise would say that the names should be the same!
-However, this does point out a possible trap in using Go RPC. If we change the structure in the client to be, say,
+   We note that the types of the value arguments are not the same on the client and server. In the server, we have used Values while in the client we used Args. That doesn't matter, as we are following the rules of gobserialisation, and the names an types of the two structures' fields match. Better programming practise would say that the names should be the same!
+   However, this does point out a possible trap in using Go RPC. If we change the structure in the client to be, say,
 
 ```go
 type Values struct {
@@ -224,9 +223,8 @@ type Values struct {
 }
 ```
 
-then gob has no problems: on the server-side the unmarshalling will ignore the value of C given by the client, and use the default zero value for A.
-Using Go RPC will require a rigid enforcement of the stability of field names and types by the programmer. We note that there is no version control mechanism to do this, and no mechanism in gob to signal any possible mismatches.
-
+then gob has no problems: on the server-side the unmarshalling will ignore the value of C given by the client, and use the default zero value for A.  
+Using Go RPC will require a rigid enforcement of the stability of field names and types by the programmer. We note that there is no version control mechanism to do this, and no mechanism in gob to signal any possible mismatches.
 
 ## JSON RPC
 
@@ -270,7 +268,7 @@ func main() {
                 log.Fatal("arith error:", err)
         }
         fmt.Printf("Arith: %d/%d=%d remainder %d\n",
-			args.A, args.B, quot.Quo, quot.Rem)
+            args.A, args.B, quot.Quo, quot.Rem)
 
 }
 ```
@@ -316,3 +314,6 @@ func main() {
 
 // checkError функц
 ```
+
+
+
