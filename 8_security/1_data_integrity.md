@@ -8,7 +8,8 @@
 
 Go has support for several hashing algorithms, including MD4, MD5, RIPEMD-160, SHA1, SHA224, SHA256, SHA384 and SHA512. They all follow the same pattern as far as the Go programmer is concerned: a function New \(or similar\) in the appropriate package returns a Hash object from the hash package.
 
-A Hash has an `io.Writer`, and you write the data to be hashed to this writer. You can query the number of bytes in the hash value by Size and the hash value by Sum.  
+A Hash has an `io.Writer`, and you write the data to be hashed to this writer. You can query the number of bytes in the hash value by Size and the hash value by Sum.
+
 A typical case is MD5 hashing. This uses the `md5` package. The hash value is a 16 byte array. This is typically printed out in ASCII form as four hexadecimal numbers, each made of 4 bytes. A simple program is
 
 ```go
