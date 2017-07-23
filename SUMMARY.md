@@ -76,6 +76,6 @@
   * [Public key алгоритм](8_security/3_public_enc.md)
   * [X.509 сертификат](8_security/4_x509.md)
   * [TLS](8_security/5_tls.md)
-  * [Жишээ дасгал](8_security/tls.md)
-  * [Бие дааж гүйцэтгэх дасгал](8_security/tls.md)
+  * [Жишээ дасгал](8_security/sample.md)
+  * [Бие дааж гүйцэтгэх дасгал](8_security/self.md)
 
