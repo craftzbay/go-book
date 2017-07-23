@@ -51,7 +51,7 @@
   * [Зэрэгцээ ба параллел боловсруулалт](6_concurrency/1_concurrency.md)
   * [Go функц](6_concurrency/2_goroutine.md)
   * [Суваг](6_concurrency/3_channel.md)
-  * [Параллел давталт](6_concurrency/4_parallel_for.md)
+  * [Параллел давталт](6_concurrency/4_parellel_for.md)
   * [Өрсөлдөөн илрүүлэх](6_concurrency/5_race.md)
   * [Синхрончлох](6_concurrency/6_sync.md)
   * [Таймер, Тикер](6_concurrency/7_timer.md)
