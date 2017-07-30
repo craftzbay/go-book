@@ -1,10 +1,10 @@
 # Нууцлал, хамгаалалт
 
-Although the internet was originally designed as a system to withstand atacks by hostile agents, it developed in a co-operative environment of relatively trusted entities. Alas, those days are long gone. Spam mail, denial of service attacks, phishing attempts and so on are indicative that anyone using the internet does so at their own risk.
+Интернэт нь анхандаа харьцангуй аюулгүй, цөөн тооны тодорхой компютерүүд холбогдон ажиллахаар зохиомжлогдсон юм. Энэ үе одоо аль хэдийн өнгөрсөн. Спам э-мэйл, denial of service attacks, урхи тавих гэх мэт олон халдлага, эрсдэл интернэтэд байдаг болсон.
 
-Applications have to be built to work correctly in hostile situations. "correctly" no longer means just getting the functional aspects of the program correct, but also means ensuring privacy and integrity of data transferred, access only to legitimate users and other issues.
+Орчин цагийн интернэтийн орчинд програм зөвхөн зөв ажиллах нь хангалтгүй байдаг. Зөв ажиллахаас гадна өгөгдлийн бүрэн бүтэн дамжуулалт, мэдээллийн нууцлал, хэрэглэгчийн хандалтыг зөв зохицуулах зэрэг олон тооцоолох зүйлс бий.
 
-This of course makes your programs much more complex. There are difficult and subtle computing problems involved in making applications secure. Attempts to do it yourself (such as making up your own encryption libraries) are usually doomed to failure. Instead, you need to make use of libraries designed by security professionals
+Програмд ямар түвшний хамгаалалт шаардлагатай байгаа нь системийн зохиомжийн явцад тодорхой болсон байх ёстой, нууцлалыг дараа нь бодно гэдэг нь том алдаа юм. Эдгээр нь мэдээж хэрэг програмыг улам төвөгтэй болгоно. Програмыг аюулгүй байлгахад олон нарийн төвөгтэй тооцооллын асуудлууд руу орох хэрэгтэй болно. Гэхдээ эдгээрийг өөрөө гардан хийх нь \(өөрийн энкрипт алгоритм зохиох г.м\) ихэвчлэн амжилтгүй болж дуусна. Үүний оронд нууцлалын мэргэжилтнүүд зохиосон, батлагдсан кодын сангууд ашиглах хэрэгтэй.
 
+Нууцлал, хамгаалалт бол өргөн хүрээтэй сэдэв юм, энэ бүлэгт багахан хэсгийг оруулсан, гэхдээ аль болох суурь ойлголтуудыг хамруулахыг хичээсэн. 
 
-Нууцлал, хамгаалалт бол өргөн хүрээтэй сэдэв юм, энэ бүлэгт багахан хэсгийг оруулсан, гэхдээ аль болох суурь ойлголтуудыг хамруулахыг хичээсэн. Ямар түвшний хамгаалалт шаардлагатай байгаа нь системийн зохиомжийн явцад тодорхой болсон байх ёстой, нууцлалаа дараа нь бодно гэдэг нь том алдаа юм.
