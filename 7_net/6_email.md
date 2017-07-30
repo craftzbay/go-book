@@ -36,7 +36,7 @@ func main() {
     }
     defer wc.Close()
 
-    buf := bytes.NewBufferString("Э-мэйлийн бие.")
+    buf := bytes.NewBufferString("Э-мэйлийн бие хэсэг энд байна.")
     if _, err = buf.WriteTo(wc); err != nil {
         log.Fatal(err)
     }
