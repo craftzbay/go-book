@@ -47,6 +47,8 @@
   * [Өгөгдлийг шахах](5_data/5_compress.md)
   * [SQL ба RDBMS](5_data/6_rdbms.md)
   * [NoSQL төрлийн бааз](5_data/7_nosql.md)
+  * [Жишээ дасгал](5_data/sample.md)
+  * [Бие дааж гүйцэтгэх дасгал](5_data/self.md)
 * [Зэрэгцээ боловсруулалт](6_concurrency/README.md)
   * [Зэрэгцээ ба параллел боловсруулалт](6_concurrency/1_concurrency.md)
   * [Go функц](6_concurrency/2_goroutine.md)
