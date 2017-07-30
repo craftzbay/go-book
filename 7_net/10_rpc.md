@@ -2,7 +2,7 @@
 
 RPC \(Remote Procedure Call\) нь сервер талд байгаа функцийг сүжээгээр дамжуулан дуудах арга юм. RPC нь ердийн функц дуудаж ажиллуулж байгаа юм шиг харагддаг. Гэхдээ нэг програм \(клиент\), цаашлаад компютерээс хальж сүлжээний өөр нэг компютер дээр ажиллаж байгаа програмын \(сервер\) функцийг ажиллуулж байгаа хэрэг юм.
 
-RPC хэрэгжүүлэх хоёр нийтлэг арга байдаг. Эхнийх нь IDL буюу интерфэйс  тодорхойлох тусгай хэл ашигладаг RPC системүүд бий. Жишээлбэл CORBA, Google RPC, Java RMI, NET Remoting зэрэг нь энэ төрөлд хамаарна.
+RPC хэрэгжүүлэх хоёр нийтлэг арга байдаг. Эхнийх нь IDL буюу интерфэйс  тодорхойлох тусгай хэл ашигладаг RPC системүүд бий. Жишээлбэл CORBA, Google RPC, Java RMI, .NET Remoting зэрэг нь энэ төрөлд хамаарна.
 
 The client-side will package this into a network message and transfer it to the server. The server will unpack this and turn it back into a procedure call on the server side. The results of this call will be packaged up for return to the client.![](/7_net/res/rpc.png)
 
