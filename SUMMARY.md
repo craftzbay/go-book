@@ -72,7 +72,7 @@
   * [RPC](7_net/10_rpc.md)
   * [Жишээ дасгал](7_net/sample.md)
   * [Бие дааж гүйцэтгэх дасгал](7_net/self.md)
-* [Нууцлал хамгаалалт](8_security/README)
+* [Нууцлал хамгаалалт](8_security/README.md)
   * [Өгөгдлийн бүтэн байдал](8_security/1_data_integrity.md)
   * [Тэгш хэмт алгоритм](8_security/2_symmetric_enc.md)
   * [Public key алгоритм](8_security/3_public_enc.md)
