@@ -4,9 +4,7 @@ RPC \(Remote Procedure Call\) нь сервер талд байгаа функц
 
 RPC хэрэгжүүлэх хоёр нийтлэг арга байдаг. Эхнийх нь IDL буюу интерфэйс  тодорхойлох тусгай хэл ашигладаг RPC системүүд бий. Жишээлбэл CORBA, Google RPC, Java RMI, NET Remoting зэрэг нь энэ төрөлд хамаарна.
 
-The client-side will package this into a network message and transfer it to the server. The server will unpack this and turn it back into a procedure call on the server side. The results of this call will be packaged up for return to the client.
-
-TODO: RPC зураг оруулах: Stub, Proxy үүсгэх тухай
+The client-side will package this into a network message and transfer it to the server. The server will unpack this and turn it back into a procedure call on the server side. The results of this call will be packaged up for return to the client.![](/7_net/res/rpc.png)
 
 Хоёр дахь нь тусгай клиент API гаргаж ашиглах арга юм. Энэ API-г клиент болон сервер талууд мэдэх хэрэгтэй, хоёр тал функц, параметр, мессежийн формат, бүтцээ сайн мэдэж байх хэрэгтэй байдаг. Жишээлбэл Web Service \(SOAP, JSON, REST\), Go RPC  зэрэг нь энэ төрлийн RPC систем юм.
 
@@ -97,11 +95,12 @@ func main() {
 
 ## HTTP RPC client
 
-The client needs to set up an HTTP connection to the RPC server. It needs to prepare a structure with the values to be sent, and the address of a variable to store the results in. Then it can make a Call with arguments:  
-The name of the remote function to execute  
-The values to be sent  
-The address of a variable to store the result in  
-A client that calls both functions of the arithmetic server is
+The client needs to set up an HTTP connection to the RPC server. It needs to prepare a structure with the values to be sent, and the address of a variable to store the results in. Then it can make a Call with arguments:
+
+* The name of the remote function to execute
+* The values to be sent
+* The address of a variable to store the result in
+* A client that calls both functions of the arithmetic server is
 
 ```go
 // ArithClient.go
@@ -275,7 +274,7 @@ func main() {
 
 ### JSON RPC server
 
-A version of the server that uses JSON encoding is
+JSON энкодинг ашигласан сервер хувилбар
 
 ```go
 // JSONArithServer.go
