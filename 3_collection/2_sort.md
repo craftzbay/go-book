@@ -59,3 +59,5 @@ func (this ByAge) Swap(i, j int) {
     this[i], this[j] = this[j], this[i]
 }
 ```
+
+TODO: sort.Slice() функцийн тухай оруулах
