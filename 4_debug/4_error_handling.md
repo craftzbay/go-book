@@ -30,7 +30,7 @@ Go хэлэнд `try/catch` механизм байхгүй. Харин `defer`,
 func FileProcessing() {
   file, err := os.Open( “file.txt” )
 
-  defer file.Close() // сануулж орхино, тэгээд төгсгөлд нь ажиллана
+  defer file.Close() // сануулж орхих, энэ код төгсгөлд нь ажиллана
 
   // … бусад үйлдэл
 }
