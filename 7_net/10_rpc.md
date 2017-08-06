@@ -4,7 +4,7 @@ RPC \(Remote Procedure Call\) нь сервер талд байгаа функц
 
 RPC хэрэгжүүлэх хоёр нийтлэг арга байдаг. Эхнийх нь IDL буюу интерфэйс  тодорхойлох тусгай хэл ашигладаг RPC системүүд бий. Жишээлбэл CORBA, Google RPC, Java RMI, dotNET Remoting зэрэг нь энэ төрөлд хамаарна.
 
-The client-side will package this into a network message and transfer it to the server. The server will unpack this and turn it back into a procedure call on the server side. The results of this call will be packaged up for return to the client.![](/7_net/res/rpc.png)
+Клиент тал нь мессежийг форматад оруулж "савлаад" сервер рүү илгээнэ. Сервер нь мессежийг задлаад сервер дээр байгаа харгалзах функцийн дуудалт болгон хувиргах буюу функцийг дуудаж ажиллуулна. Дуудалтын үр дүнг дахин форматад оруулж клиент руу буцаахад бэлтгэнэ.![](/7_net/res/rpc.png)
 
 Хоёр дахь нь тусгай клиент API гаргаж ашиглах арга юм. Энэ API-г клиент болон сервер талууд мэдэх хэрэгтэй, хоёр тал функц, параметр, мессежийн формат, бүтцээ сайн мэдэж байх хэрэгтэй байдаг. Жишээлбэл Web Service \(SOAP, JSON, REST\), Go RPC  зэрэг нь энэ төрлийн RPC систем юм.
 
@@ -70,7 +70,7 @@ func (t *Arith) Divide(args *Args, quo *Quotient) error {
 
 ## HTTP RPC Server
 
-Ямар ч RPC системд өгөгдлийг сүлжээгээр тээвэрлэх механизм шаардлагатай болно. Go RPC-н хувьд HTTP, TCP протокол ашиглах боломжтой байдаг. The advantage of the HTTP mechanism is that it can leverage off the HTTP suport library. You need to add an RPC handler to the HTTP layer which is done using HandleHTTP and then start an HTTP server. The complete code is
+Ямар ч RPC системд өгөгдлийг сүлжээгээр тээвэрлэх механизм буюу протокол шаардлагатай болно. Go RPC-н хувьд HTTP, TCP протоколыг ашиглах боломжтой байдаг.  Бэлэн HTTP сангийн боломжийг ашиглан HTTP протоколоор өгөгдөл солилцох RPC серверийг хялбархан хийж болно. Үүний тулд RPC боловсруулагчаа үүсгээд `HandleHTTP()` функцээр HTTP давхарга ашиглана гэдгийг тохируулна, ингээд HTTP серверээ асаана. Бүрэн кодыг доор харуулав.
 
 ```go
 // ArithServer.go
@@ -168,7 +168,7 @@ func main() {
 // checkError функц энд байна
 ```
 
-Note that the call to Accept is blocking, and just handles client connections. If the server wishes to do other work as well, it should call this in a goroutine.
+Энд Accept дуудалт дээр клиентээс холболт хийхийг хүлээж блок үүсгэж байгааг хараарай. Хэрэв серверийг блоклохгүйгээр өөр ажил зэрэг хийлгэх бол энэ дуудалтыг go функц дотор тавьж болно.
 
 ## TCP RPC client
 
@@ -222,7 +222,8 @@ type Values struct {
 }
 ```
 
-then gob has no problems: on the server-side the unmarshalling will ignore the value of C given by the client, and use the default zero value for A.  
+then gob has no problems: on the server-side the unmarshalling will ignore the value of C given by the client, and use the default zero value for A.
+
 Using Go RPC will require a rigid enforcement of the stability of field names and types by the programmer. We note that there is no version control mechanism to do this, and no mechanism in gob to signal any possible mismatches.
 
 ## JSON RPC
@@ -231,7 +232,7 @@ JSON RPC нь өмнөхөөс ялгаатай зүйл бараг байхгү
 
 ### JSON RPC client
 
-A client that calls both functions of the arithmetic server is
+`Arith` серверийн хоёр функцийг дуудах клиент програм
 
 ```go
 // JSONArithCLient.go
