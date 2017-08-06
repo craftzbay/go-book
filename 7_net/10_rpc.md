@@ -93,14 +93,15 @@ func main() {
 }
 ```
 
-## HTTP RPC client
+## HTTP RPC клиент
 
-The client needs to set up an HTTP connection to the RPC server. It needs to prepare a structure with the values to be sent, and the address of a variable to store the results in. Then it can make a Call with arguments:
+Клиент нь RPC сервер рүү HTTP холболт үүсгэх хэрэгтэй. Мөн серверт илгээх утгуудыг багтааж бүтэц үүсгэх хэрэгтэй, дараа нь ирэх хариуг хадгалахад зориулсан хувьсагч үүсгэх хэрэгтэй, тэгээд аргументуудаа дамжуулаад `Call()` функцийг дуудна:
 
-* The name of the remote function to execute
-* The values to be sent
-* The address of a variable to store the result in
-* A client that calls both functions of the arithmetic server is
+* Алсад байгаа дуудагдах функцийн нэр
+* Илгээх утгууд
+* Ирэх хариуг хадгалах хувьсагч
+
+Арифметик серверийн функцүүдийг дуудсан клиент програмыг доор харуулав
 
 ```go
 // ArithClient.go
@@ -141,7 +142,7 @@ func main() {
 }
 ```
 
-## TCP RPC server
+## TCP RPC сервер
 
 Арифметик серверийн TCP хувилбар нь дараах байдалтай болно.
 
@@ -170,9 +171,9 @@ func main() {
 
 Энд `Accept()` дуудалт дээр клиентээс холболт хийхийг хүлээж блок үүсгэж байгааг хараарай. Хэрэв серверийг блоклохгүйгээр өөр ажил зэрэг хийлгэх бол энэ дуудалтыг go функц дотор тавьж болно.
 
-## TCP RPC client
+## TCP RPC клиент
 
-A client that uses the TCP server and calls both functions of the arithmetic server is
+Арифметик TCP сервер рүү дуудалт хийх клиентийг доор харуулав
 
 ```go
 package main
@@ -212,9 +213,7 @@ func main() {
 }
 ```
 
-1. Matching values
-   We note that the types of the value arguments are not the same on the client and server. In the server, we have used Values while in the client we used Args. That doesn't matter, as we are following the rules of gobserialisation, and the names an types of the two structures' fields match. Better programming practise would say that the names should be the same!
-   However, this does point out a possible trap in using Go RPC. If we change the structure in the client to be, say,
+Клиент талд байгаа аргументийн нэрс нь сервер талд байгаа аргументийн нэрсээс өөр байж болно. Жишээлбэл, сервер талд байгаа `Args` нэртэй бүтцэд харгалзах`Values` нэртэй бүтэц үүсгээд клиент талд  ашиглаж болно. 
 
 ```go
 type Values struct {
@@ -222,9 +221,7 @@ type Values struct {
 }
 ```
 
-then gob has no problems: on the server-side the unmarshalling will ignore the value of C given by the client, and use the default zero value for A.
-
-Using Go RPC will require a rigid enforcement of the stability of field names and types by the programmer. We note that there is no version control mechanism to do this, and no mechanism in gob to signal any possible mismatches.
+Нэр нь чухал биш, харин бүтцийн талбарууд нь таарч байх ёстой. Нэрний зөрүүг RPC дамжуулалт, хувиргалтын явцад тоохгүй өнгөрөөдөг. Гэхдээ будлиан үүсгэхгүйн тулд клиент ба сервер талд байгаа мессеж бүтцүүдийн нэршилийг адилхан байлгавал зүгээр.
 
 ## JSON RPC
 
