@@ -90,7 +90,6 @@ Go хэлэнд функцийн буцах утгыг нэрлэх боломж
 package main
 import "fmt"
 
-
 func split(sum int) (x, y int) {
     // x, y нэртэй буцах утгуудыг функц дотор ашиглаж байна
     x = sum * 4 / 9
