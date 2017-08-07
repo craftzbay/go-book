@@ -2,7 +2,6 @@
 
 * [Өмнөх үг](README.md)
 * [Go хэлний үндэс](1_start/README.md)
-  * [Компютертэй ойлголцох нь](1_start/00_interaction.md)
   * [Анхны Go програм](1_start/01_hello_world.md)
   * [Програмын үндсэн элементүүд](1_start/02_basics.md)
   * [Стандарт оролт, гаралт](1_start/03_standart_io.md)
