@@ -25,7 +25,7 @@ type Person struct {
 
 ```go
 type Android struct {
-    Person
+    Person     // embedding буюу Person төрлийн шинжүүдийг агуулж байна
     model string
 }
 ```
