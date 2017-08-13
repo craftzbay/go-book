@@ -79,7 +79,7 @@ var (
 
 func main( ) {
   var number int    /* 3 оронтой эерэг бүхэл тоо */
-  fmt.Printf("Тоо оруулна уу: ")
+  fmt.Printf("3 оронтой тоо оруулна уу: ")
   fmt.Scanf("%d", &number)
 
   d1 := number / 100        /* 100-тын орныг тооцоолох */
