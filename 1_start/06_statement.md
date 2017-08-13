@@ -172,6 +172,7 @@ func main() {
 
         total += item
     }
+    // үр дүнг хэвлэх
     fmt.Printf("Эцсийн дүн %d\n", total)
 }
 ```
@@ -192,16 +193,17 @@ func main() {
         fmt.Printf("Тоо оруулна уу ( 0 оруулвал дуусна) ? ")
         fmt.Scanf("%d", &item)
 
-        if item == 0 {
+        if item == 0 { // 0 бол давталтыг таслах
             break
         }
 
-        if item < 0 {
+        if item < 0 { // 0-с бага бол алгасах/үргэжлүүлэх
             continue
         }
 
         total += item
     }
+    
     fmt.Printf("Эцсийн дүн %d\n", total)
 }
 ```
