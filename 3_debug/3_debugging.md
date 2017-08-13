@@ -147,6 +147,3 @@ func swap( p1 *int, p2 *int) {
 The program is running.  Exit anyway? (y or n) y
 $
 ```
-
-
-
