@@ -1,23 +1,23 @@
 package main
+
 import "fmt"
 
-var total int  /* нийт дүн */
-var item int   /* нэмэх утга */
+var total int /* нийт дүн */
+var item int  /* нэмэх утга */
 
 func main() {
-    total= 0
+	total = 0
 
-    for {
-        fmt.Printf("Тоо оруулна уу ( 0 оруулвал дуусна) ? ")
+	for {
+		fmt.Printf("Тоо оруулна уу ( 0 оруулвал дуусна) ? ")
+		fmt.Scanf("%d", &item)
 
-        fmt.Scanf("%d", &item)
+		if item == 0 {
+			break
+		}
 
-        if item == 0 {
-            break
-        }
+		total += item
+	}
 
-        total += item
-    }
-
-    fmt.Printf("Эцсийн дүн %d\n", total)    
+	fmt.Printf("Эцсийн дүн %d\n", total)
 }

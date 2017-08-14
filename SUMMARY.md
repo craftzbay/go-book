@@ -14,7 +14,6 @@
   * [Төрөл өртгөтгөх](1_start/10_embed.md)
   * [Интерфэйс](1_start/11_interface.md)
   * [Пакет](1_start/12_paket.md)
-  * [Програм бүтээх нь](1_start/13_development.md)
   * [Жишээ дасгал](1_start/sample.md)
   * [Бие дааж хийх дасгал](1_start/self.md)
 * [Өгөгдлийн бүтцүүд](2_collection/README.md)
